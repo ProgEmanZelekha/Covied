@@ -46,6 +46,13 @@
   "edit": "Edit profile",
   "save": "Save Changes",
   "old_paa": "old password",
-  "register_susses": "Your Account Done , Check Your Email To Active Account"
+  "register_susses": "Your Account Done , Check Your Email To Active Account",
+  "register_verify": "Please Verify Your Email From Link Send To You.",
+  "password_error": "The password provided is too weak.",
+  "wrong_password": "Your Password is Wrong .",
+  "email_not_found": "Your Email Not Found.",
+  "email_found": "The account already exists for that email.",
+  "pass_updated": "Your Password Is Updated.",
+  "name_updated": "Your Name Is Updated."
 
 }

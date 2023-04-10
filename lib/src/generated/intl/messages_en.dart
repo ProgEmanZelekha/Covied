@@ -34,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_found": MessageLookupByLibrary.simpleMessage(
+            "The account already exists for that email."),
+        "email_not_found":
+            MessageLookupByLibrary.simpleMessage("Your Email Not Found."),
         "enter_code_plz":
             MessageLookupByLibrary.simpleMessage("Enter Code Please"),
         "enter_confirm_password":
@@ -62,8 +66,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_now": MessageLookupByLibrary.simpleMessage("login now!"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
         "name": MessageLookupByLibrary.simpleMessage("name"),
+        "name_updated":
+            MessageLookupByLibrary.simpleMessage("Your Name Is Updated."),
         "old_paa": MessageLookupByLibrary.simpleMessage("old password"),
+        "pass_updated":
+            MessageLookupByLibrary.simpleMessage("Your Password Is Updated."),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_error": MessageLookupByLibrary.simpleMessage(
+            "The password provided is too weak."),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
@@ -71,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t receive code"),
         "register_susses": MessageLookupByLibrary.simpleMessage(
             "Your Account Done , Check Your Email To Active Account"),
+        "register_verify": MessageLookupByLibrary.simpleMessage(
+            "Please Verify Your Email From Link Send To You."),
         "remember_me": MessageLookupByLibrary.simpleMessage("remember me"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "resend_code_in":
@@ -91,6 +103,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "By any way you want to get predict if you have covid-19 or not"),
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
         "verify_email":
-            MessageLookupByLibrary.simpleMessage("Verify your email")
+            MessageLookupByLibrary.simpleMessage("Verify your email"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("Your Password is Wrong .")
       };
 }

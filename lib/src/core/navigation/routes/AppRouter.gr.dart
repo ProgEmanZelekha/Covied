@@ -20,27 +20,27 @@ import '../../../feature/auth/presentation/pages/otp_page.dart' as _i12;
 import '../../../feature/auth/presentation/pages/register_page.dart' as _i10;
 import '../../../feature/auth/presentation/widgets/auth_container.dart' as _i1;
 import '../../../feature/home/presentation/pages/home_container.dart' as _i2;
-import '../../../feature/home/presentation/pages/home_page.dart' as _i13;
+import '../../../feature/home/presentation/pages/home_page.dart' as _i14;
 import '../../../feature/home/presentation/pages/profile/about_us_page.dart'
     as _i4;
 import '../../../feature/home/presentation/pages/profile/change_password_page.dart'
-    as _i18;
+    as _i13;
 import '../../../feature/home/presentation/pages/profile/contact_us_page.dart'
     as _i5;
 import '../../../feature/home/presentation/pages/profile/edite_profile_page.dart'
-    as _i17;
+    as _i18;
 import '../../../feature/home/presentation/pages/profile/EmptyProfilePage.dart'
     as _i3;
 import '../../../feature/home/presentation/pages/profile/profile_info_page.dart'
-    as _i16;
+    as _i17;
 import '../../../feature/home/presentation/pages/profile/settings_page.dart'
     as _i6;
-import '../../../feature/home/presentation/pages/profile_page.dart' as _i15;
+import '../../../feature/home/presentation/pages/profile_page.dart' as _i16;
 import '../../../feature/home/presentation/pages/question/question_page.dart'
     as _i7;
 import '../../../feature/home/presentation/pages/question/question_result_page.dart'
     as _i8;
-import '../../../feature/home/presentation/pages/test_page.dart' as _i14;
+import '../../../feature/home/presentation/pages/test_page.dart' as _i15;
 
 class AppRouter extends _i19.RootStackRouter {
   AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
@@ -130,28 +130,38 @@ class AppRouter extends _i19.RootStackRouter {
         child: _i12.OtpPage(key: args.key),
       );
     },
+    ResetPassword.name: (routeData) {
+      final args = routeData.argsAs<ResetPasswordArgs>();
+      return _i19.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i13.ChangePasswordPage(
+          key: args.key,
+          type: args.type,
+        ),
+      );
+    },
     HomeRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i13.HomePage(),
+        child: const _i14.HomePage(),
       );
     },
     TestRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i14.TestPage(),
+        child: const _i15.TestPage(),
       );
     },
     ProfileRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i15.ProfilePage(),
+        child: const _i16.ProfilePage(),
       );
     },
     ProfileInfoRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i16.ProfileInfoPage(),
+        child: const _i17.ProfileInfoPage(),
       );
     },
     EditeProfileRoute.name: (routeData) {
@@ -159,15 +169,17 @@ class AppRouter extends _i19.RootStackRouter {
           orElse: () => const EditeProfileRouteArgs());
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i17.EditeProfilePage(key: args.key),
+        child: _i18.EditeProfilePage(key: args.key),
       );
     },
     ChangePasswordRoute.name: (routeData) {
-      final args = routeData.argsAs<ChangePasswordRouteArgs>(
-          orElse: () => const ChangePasswordRouteArgs());
+      final args = routeData.argsAs<ChangePasswordRouteArgs>();
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i18.ChangePasswordPage(key: args.key),
+        child: _i13.ChangePasswordPage(
+          key: args.key,
+          type: args.type,
+        ),
       );
     },
   };
@@ -196,6 +208,11 @@ class AppRouter extends _i19.RootStackRouter {
             _i19.RouteConfig(
               OtpRoute.name,
               path: 'otp-page',
+              parent: AuthContainer.name,
+            ),
+            _i19.RouteConfig(
+              ResetPassword.name,
+              path: 'change-password-page',
               parent: AuthContainer.name,
             ),
           ],
@@ -473,7 +490,41 @@ class OtpRouteArgs {
 }
 
 /// generated route for
-/// [_i13.HomePage]
+/// [_i13.ChangePasswordPage]
+class ResetPassword extends _i19.PageRouteInfo<ResetPasswordArgs> {
+  ResetPassword({
+    _i20.Key? key,
+    required int type,
+  }) : super(
+          ResetPassword.name,
+          path: 'change-password-page',
+          args: ResetPasswordArgs(
+            key: key,
+            type: type,
+          ),
+        );
+
+  static const String name = 'ResetPassword';
+}
+
+class ResetPasswordArgs {
+  const ResetPasswordArgs({
+    this.key,
+    required this.type,
+  });
+
+  final _i20.Key? key;
+
+  final int type;
+
+  @override
+  String toString() {
+    return 'ResetPasswordArgs{key: $key, type: $type}';
+  }
+}
+
+/// generated route for
+/// [_i14.HomePage]
 class HomeRoute extends _i19.PageRouteInfo<void> {
   const HomeRoute()
       : super(
@@ -485,7 +536,7 @@ class HomeRoute extends _i19.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.TestPage]
+/// [_i15.TestPage]
 class TestRoute extends _i19.PageRouteInfo<void> {
   const TestRoute()
       : super(
@@ -497,7 +548,7 @@ class TestRoute extends _i19.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i15.ProfilePage]
+/// [_i16.ProfilePage]
 class ProfileRoute extends _i19.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
@@ -509,7 +560,7 @@ class ProfileRoute extends _i19.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.ProfileInfoPage]
+/// [_i17.ProfileInfoPage]
 class ProfileInfoRoute extends _i19.PageRouteInfo<void> {
   const ProfileInfoRoute()
       : super(
@@ -521,7 +572,7 @@ class ProfileInfoRoute extends _i19.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.EditeProfilePage]
+/// [_i18.EditeProfilePage]
 class EditeProfileRoute extends _i19.PageRouteInfo<EditeProfileRouteArgs> {
   EditeProfileRoute({_i20.Key? key})
       : super(
@@ -545,25 +596,35 @@ class EditeProfileRouteArgs {
 }
 
 /// generated route for
-/// [_i18.ChangePasswordPage]
+/// [_i13.ChangePasswordPage]
 class ChangePasswordRoute extends _i19.PageRouteInfo<ChangePasswordRouteArgs> {
-  ChangePasswordRoute({_i20.Key? key})
-      : super(
+  ChangePasswordRoute({
+    _i20.Key? key,
+    required int type,
+  }) : super(
           ChangePasswordRoute.name,
           path: 'change-password-page',
-          args: ChangePasswordRouteArgs(key: key),
+          args: ChangePasswordRouteArgs(
+            key: key,
+            type: type,
+          ),
         );
 
   static const String name = 'ChangePasswordRoute';
 }
 
 class ChangePasswordRouteArgs {
-  const ChangePasswordRouteArgs({this.key});
+  const ChangePasswordRouteArgs({
+    this.key,
+    required this.type,
+  });
 
   final _i20.Key? key;
 
+  final int type;
+
   @override
   String toString() {
-    return 'ChangePasswordRouteArgs{key: $key}';
+    return 'ChangePasswordRouteArgs{key: $key, type: $type}';
   }
 }

@@ -27,6 +27,8 @@ import 'package:untitled/src/feature/home/presentation/pages/test_page.dart';
       AutoRoute<dynamic>(page: RegisterPage),
       AutoRoute<dynamic>(page: ForgetPassPage),
       AutoRoute<dynamic>(page: OtpPage),
+      AutoRoute<dynamic>(page: ChangePasswordPage,name: "ResetPassword"),
+
     ]),
     //Main Routes
     AutoRoute<dynamic>(page: HomeContainer, children: [

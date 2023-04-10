@@ -18,6 +18,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<AppBloc, AppState>(
+  builder: (context, state) {
     return Column(
         children: [
           CornersBack(
@@ -99,6 +101,8 @@ class ProfilePage extends StatelessWidget {
                 child: logoutButton(context)),
           )
         ]);
+  },
+);
   }
 
   Widget logoutButton(BuildContext context) {

@@ -15,6 +15,7 @@ class CustomWidgets {
       TextInputAction textInputAction = TextInputAction.done,
       bool isPassword = false,
       bool isRequired = true,
+      bool isEnable = true,
       bool dirEnd = true,
       String isRequiredTitle = "",
       bool isNumber = false,
@@ -72,6 +73,7 @@ class CustomWidgets {
             height: 10,
           ),
           TextFormField(
+              enabled: isEnable ,
               textInputAction: textInputAction,
               cursorColor: black,
               // textDirection: dirEnd ? TextDirection.ltr : TextDirection.rtl,
@@ -99,8 +101,7 @@ class CustomWidgets {
               autovalidateMode: AutovalidateMode.disabled,
               obscureText: isPassword,
               keyboardType: textInputType,
-              onChanged: (text){
-              },
+              onChanged: (text) {},
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(
@@ -115,7 +116,13 @@ class CustomWidgets {
                   borderSide: BorderSide(
                     color: AppColors.current.primaryTextColor,
                   ),
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                disabledBorder:  OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.current.primaryTextColor,
+                  ),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(

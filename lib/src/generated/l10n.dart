@@ -529,6 +529,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Please Verify Your Email From Link Send To You.`
+  String get register_verify {
+    return Intl.message(
+      'Please Verify Your Email From Link Send To You.',
+      name: 'register_verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password provided is too weak.`
+  String get password_error {
+    return Intl.message(
+      'The password provided is too weak.',
+      name: 'password_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Password is Wrong .`
+  String get wrong_password {
+    return Intl.message(
+      'Your Password is Wrong .',
+      name: 'wrong_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Email Not Found.`
+  String get email_not_found {
+    return Intl.message(
+      'Your Email Not Found.',
+      name: 'email_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account already exists for that email.`
+  String get email_found {
+    return Intl.message(
+      'The account already exists for that email.',
+      name: 'email_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Password Is Updated.`
+  String get pass_updated {
+    return Intl.message(
+      'Your Password Is Updated.',
+      name: 'pass_updated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Name Is Updated.`
+  String get name_updated {
+    return Intl.message(
+      'Your Name Is Updated.',
+      name: 'name_updated',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

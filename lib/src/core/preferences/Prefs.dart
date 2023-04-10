@@ -1,6 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:untitled/src/core/preferences/PreferencesHelper.dart';
 import 'package:untitled/src/core/preferences/constants.dart';
 
+@injectable
 class Prefs {
   final PreferencesHelper preferencesHelper;
 

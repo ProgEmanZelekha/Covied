@@ -60,7 +60,7 @@ class ProfileInfoPage extends StatelessWidget {
               title: S.current.change_pass,
               padding: 8.w,
               onClick: () {
-                context.router.push( ChangePasswordRoute());},
+                context.router.push( ChangePasswordRoute(type: 2));},
             )
 ,
             Expanded(

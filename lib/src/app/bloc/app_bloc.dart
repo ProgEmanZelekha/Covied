@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:untitled/src/core/preferences/Prefs.dart';
 
 part 'app_event.dart';
@@ -55,10 +57,12 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     prefs.emailString.then((value) => email = value);
     prefs.passwordString.then((value) => password = value);
   }
+  final FirebaseAuth _firebaseAuth = GetIt.instance.get<FirebaseAuth>();
 
   void _logout(LogoutEvent event, Emitter<AppState> emit) async {
     isLogin = event.isLogin;
     if (!event.isLogin) {
+      _firebaseAuth.signOut();
       emit(AppLogin(languageCode, modeThem, true));
       await prefs.clear();
       emit(AppLogin(languageCode, modeThem, false));

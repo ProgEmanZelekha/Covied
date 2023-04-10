@@ -54,8 +54,7 @@ class ForgetPassPage extends StatelessWidget {
         ),
         customButton(S.current.send, () {
           if (_forgetFormKey.currentState?.validate() ?? false) {
-            bloc?.otpStartTimer();
-            context.router.push(OtpRoute());
+            context.router.push(ResetPassword(type: 1));
           }
         }),
         SizedBox(

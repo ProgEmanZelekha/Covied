@@ -4,11 +4,12 @@ import 'package:untitled/resource/styles/app_colors.dart';
 
 /// define custom themes here
 final lightTheme = ThemeData(
-  badgeTheme: BadgeThemeData(backgroundColor: Colors.white),
-  brightness: Brightness.light,
-  splashColor: Colors.transparent,
-  fontFamily: "Schyler"
-)..addAppColor(
+    badgeTheme: BadgeThemeData(backgroundColor: Colors.white),
+    brightness: Brightness.light,
+    splashColor: Colors.transparent,
+    fontFamily: "Almarai"
+)
+  ..addAppColor(
     AppThemeType.light,
     AppColors.defaultAppColor,
   );
@@ -16,7 +17,9 @@ final lightTheme = ThemeData(
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   splashColor: Colors.transparent,
-)..addAppColor(
+    fontFamily: "Almarai"
+)
+  ..addAppColor(
     AppThemeType.dark,
     AppColors.darkThemeColor,
   );
@@ -31,11 +34,13 @@ extension ThemeDataExtensions on ThemeData {
   }
 
   AppColors get appColor {
-    return _appColorMap[AppThemeSetting.currentAppThemeType] ?? AppColors.defaultAppColor;
+    return _appColorMap[AppThemeSetting.currentAppThemeType] ??
+        AppColors.defaultAppColor;
   }
 }
 
 class AppThemeSetting {
   const AppThemeSetting._();
+
   static late AppThemeType currentAppThemeType = AppThemeType.light;
 }

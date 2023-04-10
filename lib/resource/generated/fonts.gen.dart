@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Schyler
-  static const String schyler = 'Schyler';
+  /// Font family: Almarai
+  static const String almarai = 'Almarai';
 }

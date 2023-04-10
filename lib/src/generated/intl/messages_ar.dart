@@ -34,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "edit": MessageLookupByLibrary.simpleMessage("حرر"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "email_found": MessageLookupByLibrary.simpleMessage(
+            "الحساب موجود بالفعل لهذا البريد الإلكتروني."),
+        "email_not_found": MessageLookupByLibrary.simpleMessage(
+            "لم يتم العثور على بريدك الإلكتروني."),
         "enter_code_plz":
             MessageLookupByLibrary.simpleMessage("أدخل الرمز من فضلك"),
         "enter_confirm_password":
@@ -62,14 +66,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن!"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "name": MessageLookupByLibrary.simpleMessage("اسم"),
+        "name_updated": MessageLookupByLibrary.simpleMessage("تم تحديث اسمك."),
         "old_paa": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
+        "pass_updated": MessageLookupByLibrary.simpleMessage(
+            "يتم تحديث كلمة المرور الخاصة بك."),
         "password": MessageLookupByLibrary.simpleMessage("شعار"),
+        "password_error": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور المقدمة ضعيفة للغاية."),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
         "profile": MessageLookupByLibrary.simpleMessage("ملف تعريف"),
         "receive_code": MessageLookupByLibrary.simpleMessage("لا تتلقى الرمز"),
         "register_susses": MessageLookupByLibrary.simpleMessage(
             "تم عمل الاكونت بنجاح , من فضلك قم بتفعبل حسابك عن طريق الايميل الخاص بك "),
+        "register_verify": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من بريدك الإلكتروني من الرابط المرسل إليك."),
         "remember_me": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "resend": MessageLookupByLibrary.simpleMessage("ارسال"),
         "resend_code_in":
@@ -90,6 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "بأي طريقة تريد أن تتنبأ إذا كنت مصابا ب covid-19 أم لا"),
         "verify": MessageLookupByLibrary.simpleMessage("تثبت"),
         "verify_email":
-            MessageLookupByLibrary.simpleMessage("تحقق من بريدك الإلكتروني")
+            MessageLookupByLibrary.simpleMessage("تحقق من بريدك الإلكتروني"),
+        "wrong_password": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور الخاصة بك خاطئة .")
       };
 }

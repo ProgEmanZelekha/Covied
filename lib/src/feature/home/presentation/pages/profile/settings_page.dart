@@ -12,6 +12,8 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<AppBloc, AppState>(
+  builder: (context, state) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -51,5 +53,7 @@ class SettingsPage extends StatelessWidget {
         ],
       ),
     );
+  },
+);
   }
 }

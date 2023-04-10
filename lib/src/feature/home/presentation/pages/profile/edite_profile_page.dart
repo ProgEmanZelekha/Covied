@@ -16,17 +16,13 @@ class EditeProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<EditProfileCubit>(
-        create: (BuildContext context) => EditProfileCubit(),
-        child: Builder(
-          builder: (context) => _buildPage(context),
-        ));
+    return _buildPage(context);
   }
 
   Widget _buildPage(BuildContext context) {
     var bloc = BlocProvider.of<EditProfileCubit>(context);
-    bloc.nameController.text = BlocProvider.of<AppBloc>(context).name??"";
-    bloc.emailController.text = BlocProvider.of<AppBloc>(context).email??"";
+    bloc.nameController.text = BlocProvider.of<AppBloc>(context).name ?? "";
+    bloc.emailController.text = BlocProvider.of<AppBloc>(context).email ?? "";
     return Scaffold(
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,12 +33,12 @@ class EditeProfilePage extends StatelessWidget {
               height: 20.h,
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Form(
                   key: _editFormKey,
                   child: Column(children: [
                     CustomWidgets.textField(S.current.name,
-                        textInputAction: TextInputAction.next,
+                        textInputAction: TextInputAction.done,
                         large_title: true,
                         dirEnd: false,
                         hintText: S.current.enter_name,
@@ -52,6 +48,7 @@ class EditeProfilePage extends StatelessWidget {
                         isRequired: true,
                         textInputType: TextInputType.text),
                     CustomWidgets.textField(S.current.email,
+                        isEnable: false,
                         large_title: true,
                         dirEnd: false,
                         hintText: S.current.enter_email,
@@ -60,7 +57,6 @@ class EditeProfilePage extends StatelessWidget {
                         errorMessage: S.current.enter_email,
                         isRequired: true,
                         textInputType: TextInputType.emailAddress),
-
                   ])),
             ),
             Expanded(
@@ -71,14 +67,17 @@ class EditeProfilePage extends StatelessWidget {
                   width: double.infinity,
                   child: customButton(S.current.save, () {
                     if (_editFormKey.currentState?.validate() ?? false) {
-                      // bloc?.otpStartTimer();
-                      context.router.pop();
+                      bloc.editProfile();
+                      BlocProvider.of<AppBloc>(context).name =
+                          bloc.nameController.text;
+                      BlocProvider.of<AppBloc>(context).add(LanguageEvent(
+                          languageCode:
+                              BlocProvider.of<AppBloc>(context).languageCode));
                     }
                   }),
                 ),
               ),
             ),
-
           ]),
     );
   }
