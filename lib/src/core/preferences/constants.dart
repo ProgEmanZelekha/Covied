@@ -1,0 +1,9 @@
+const  String name = "NAME";
+const String remember = "REMEMBER";
+const String email = "EMAIL";
+const String phone = "PHONE";
+const String password = "PASSWORD";
+const String language = "LANGUAGE";
+const String them = "THEM";
+const String isLogin = "LOGIN";
+const String baseUrl = 'https://dev.gmzwya.com/api/v1/'; // DevUrl

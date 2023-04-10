@@ -1,0 +1,10 @@
+<svg id="تسجيل_خروج" data-name="تسجيل خروج" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+<!--  <g id="Rectangle_19175" data-name="Rectangle 19175" fill="#101010" stroke="#707070" stroke-width="1" opacity="0">-->
+<!--    <rect width="24" height="24" stroke="none"/>-->
+<!--    <rect x="0.5" y="0.5" width="23" height="23" fill="none"/>-->
+<!--  </g>-->
+  <g id="sign-out-alt" transform="translate(2 2)">
+    <path id="Path_27804" data-name="Path 27804" d="M20.108,9.4,15.972,5.282,14.791,6.461l3.593,3.576H6.617V11.7H18.384l-3.593,3.576,1.181,1.176,4.136-4.116a2.072,2.072,0,0,0,0-2.94Z" transform="translate(-1.141 -0.869)" fill="#ffffff"/>
+    <path id="Path_27805" data-name="Path 27805" d="M8.753,17.5a.834.834,0,0,1-.836.833H2.507a.834.834,0,0,1-.836-.833V2.5a.834.834,0,0,1,.836-.833H7.918a.834.834,0,0,1,.836.833V6.944h1.671V2.5A2.5,2.5,0,0,0,7.918,0H2.507A2.5,2.5,0,0,0,0,2.5v15A2.5,2.5,0,0,0,2.507,20H7.918a2.5,2.5,0,0,0,2.507-2.5V13.056H8.753Z" fill="#ffffff"/>
+  </g>
+</svg>

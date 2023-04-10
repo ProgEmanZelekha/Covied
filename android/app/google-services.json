@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "22535537457",
+    "project_id": "covied-c84ab",
+    "storage_bucket": "covied-c84ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22535537457:android:f4769a85d55f6e0f57a610",
+        "android_client_info": {
+          "package_name": "com.zelekha.covied"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22535537457-a01eqrb11n56gs1ngj914fukrvvgkq7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zelekha.covied",
+            "certificate_hash": "c59d1786ad3dac8e4dae3f6e15ea33e691c1eebc"
+          }
+        },
+        {
+          "client_id": "22535537457-qg6vsprus24d9thqfs40d12pqdic9t87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLhI3zav4XpHpcFkFNd0K0z6HfLklUgFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22535537457-qg6vsprus24d9thqfs40d12pqdic9t87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
