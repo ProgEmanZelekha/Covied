@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/active_check_circle.svg
+  String get activeCheckCircle => 'assets/images/active_check_circle.svg';
+
   /// File path: assets/images/app_icon.png
   AssetGenImage get appIcon =>
       const AssetGenImage('assets/images/app_icon.png');
@@ -22,6 +25,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/back.svg
   String get back => 'assets/images/back.svg';
+
+  /// File path: assets/images/check_circle.svg
+  String get checkCircle => 'assets/images/check_circle.svg';
 
   /// File path: assets/images/girl.svg
   String get girl => 'assets/images/girl.svg';
@@ -84,9 +90,11 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        activeCheckCircle,
         appIcon,
         appIconWhite,
         back,
+        checkCircle,
         girl,
         home,
         home1,

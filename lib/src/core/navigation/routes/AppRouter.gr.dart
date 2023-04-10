@@ -147,9 +147,11 @@ class AppRouter extends _i19.RootStackRouter {
       );
     },
     TestRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<TestRouteArgs>(orElse: () => const TestRouteArgs());
       return _i19.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i15.TestPage(),
+        child: _i15.TestPage(key: args.key),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -537,14 +539,26 @@ class HomeRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.TestPage]
-class TestRoute extends _i19.PageRouteInfo<void> {
-  const TestRoute()
+class TestRoute extends _i19.PageRouteInfo<TestRouteArgs> {
+  TestRoute({_i20.Key? key})
       : super(
           TestRoute.name,
           path: 'test-page',
+          args: TestRouteArgs(key: key),
         );
 
   static const String name = 'TestRoute';
+}
+
+class TestRouteArgs {
+  const TestRouteArgs({this.key});
+
+  final _i20.Key? key;
+
+  @override
+  String toString() {
+    return 'TestRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

@@ -16,7 +16,11 @@ class HomeContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
       create: (context) => HomeCubit()..homeInitial(),
-      child: _buildPage(context),
+      child: Builder(
+        builder: (context) {
+          return _buildPage(context);
+        }
+      ),
     );
   }
 
@@ -25,7 +29,7 @@ class HomeContainer extends StatelessWidget {
       color: AppColors.current.primaryColor,
       padding: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
       child: AutoTabsRouter(
-          routes: const [HomeRoute(), TestRoute(), ProfileRoute()],
+          routes:  [HomeRoute(), TestRoute(), ProfileRoute()],
           builder: (context, child, animation) {
             final tabsRouter = AutoTabsRouter.of(context);
             return Scaffold(

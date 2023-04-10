@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:untitled/resource/generated/assets.gen.dart';
 import 'package:untitled/resource/styles/app_colors.dart';
 import 'package:untitled/resource/styles/values.dart';
@@ -12,7 +13,8 @@ import 'package:untitled/src/feature/home/presentation/widgets/item_select_widge
 import 'package:untitled/src/generated/l10n.dart';
 
 class TestPage extends StatelessWidget {
-  const TestPage({Key? key}) : super(key: key);
+  TestPage({Key? key}) : super(key: key);
+  final _appRouter = GetIt.instance.get<AppRouter>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class TestPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  context.router.push(QuestionRoute());
+                  _appRouter.push(QuestionRoute());
                 },
                 child: ItemSelectWidget(
                   text: S.current.test_select_1,
@@ -75,7 +77,6 @@ class TestPage extends StatelessWidget {
                 text: S.current.test_select_3,
                 imageSize: 80.w,
               ),
-
             ]);
       },
     );

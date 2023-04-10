@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
 
   MyApp({super.key, required this.isLogin});
 
-  final _appRouter = AppRouter();
+  final _appRouter = GetIt.instance.get<AppRouter>();
 
   @override
   Widget build(BuildContext context) {
