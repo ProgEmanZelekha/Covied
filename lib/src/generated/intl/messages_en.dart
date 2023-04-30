@@ -20,6 +20,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(count) =>
+      "{count, plural, =0{What’s your gender ? Male,Female} =1{What’s your age ? More than or equal 60,Less than 60} =2{Do you have a cough ? Yes,No} =3{Do you have a fever ? Yes,No} =4{Do you have a sore throat ? Yes,No} =5{Do you have a shortness of breath ? Yes,No} =6{Do you have a headache ? Yes,No} =7{Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} other{${count} wombats}}";
+
+  static String m1(count) =>
+      "${Intl.plural(count, zero: 'no wombats', one: '1 wombat', other: '${count} wombats')}";
+
+  static String m2(gender) =>
+      "${Intl.gender(gender, female: 'she', male: 'he', other: 'they')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about_us": MessageLookupByLibrary.simpleMessage("About Us"),
@@ -65,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("login"),
         "login_now": MessageLookupByLibrary.simpleMessage("login now!"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+        "nQuestion": m0,
+        "nWombats": m1,
         "name": MessageLookupByLibrary.simpleMessage("name"),
         "name_updated":
             MessageLookupByLibrary.simpleMessage("Your Name Is Updated."),
@@ -77,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "pronoun": m2,
         "receive_code":
             MessageLookupByLibrary.simpleMessage("Don\'t receive code"),
         "register_susses": MessageLookupByLibrary.simpleMessage(

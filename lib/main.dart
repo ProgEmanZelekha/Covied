@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _appRouter.delegate(initialRoutes: [
-      isLogin ? const HomeContainer() : const AuthContainer()
+      isLogin ?  HomeContainer() :  AuthContainer()
     ]);
     return ScreenUtilInit(
       minTextAdapt: true,

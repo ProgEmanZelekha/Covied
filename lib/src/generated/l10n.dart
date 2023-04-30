@@ -599,6 +599,70 @@ class S {
       args: [],
     );
   }
+
+  /// `{gender, select, male{he} female{she} other{they}}`
+  String pronoun(String gender) {
+    return Intl.gender(
+      gender,
+      male: 'he',
+      female: 'she',
+      other: 'they',
+      name: 'pronoun',
+      desc: '',
+      args: [gender],
+    );
+  }
+
+  /// `{What’s your gender ? Male,Female What’s your age ? More than or equal 60,Less than 60 Do you have a cough ? Yes,No $ Do you have a fever ? Yes,No} {Do you have a sore throat ? Yes,No} {Do you have a shortness of breath ? Yes,No} {Do you have a headache ? Yes,No} {Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} }`
+  String get nQuestion {
+    return Intl.message(
+      '{What’s your gender ? Male,Female What’s your age ? More than or equal 60,Less than 60 Do you have a cough ? Yes,No \$ Do you have a fever ? Yes,No} {Do you have a sore throat ? Yes,No} {Do you have a shortness of breath ? Yes,No} {Do you have a headache ? Yes,No} {Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} }',
+      name: 'nQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count, plural, =0{no wombats} =1{1 wombat} other{{count} wombats}}`
+  String nWombats(num count) {
+    return Intl.plural(
+      count,
+      zero: 'no wombats',
+      one: '1 wombat',
+      other: '$count wombats',
+      name: 'nWombats',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  // skipped getter for the 'question_answer[0][0]' key
+
+  // skipped getter for the 'question_answer[0][1]' key
+
+  // skipped getter for the 'question_answer[1][0]' key
+
+  // skipped getter for the 'question_answer[1][1]' key
+
+  // skipped getter for the 'question_answer[3][0]' key
+
+  // skipped getter for the 'question_answer[3][1]' key
+
+  // skipped getter for the 'question_answer[4][0]' key
+
+  // skipped getter for the 'question_answer[4][1]' key
+
+  // skipped getter for the 'question_answer[5][0]' key
+
+  // skipped getter for the 'question_answer[5][1]' key
+
+  // skipped getter for the 'question_answer[6][0]' key
+
+  // skipped getter for the 'question_answer[6][1]' key
+
+  // skipped getter for the 'question_answer[7][0]' key
+
+  // skipped getter for the 'question_answer[7][1]' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -7,6 +7,7 @@ import 'package:untitled/resource/styles/app_colors.dart';
 import 'package:untitled/resource/styles/values.dart';
 import 'package:untitled/src/app/bloc/app_bloc.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_cubit.dart';
+import 'package:untitled/src/feature/home/presentation/manager/home/home_state.dart';
 import 'package:untitled/src/feature/home/presentation/widgets/corners_back.dart';
 import 'package:untitled/src/feature/home/presentation/widgets/item_select_widget.dart';
 import 'package:untitled/src/generated/l10n.dart';
@@ -46,9 +47,7 @@ class HomePage extends StatelessWidget {
                       height: 10.h,
                     ),
                     Text(
-                      "${S.current.hello} ${BlocProvider
-                          .of<AppBloc>(context)
-                          .name}",
+                      "${S.current.hello} ${BlocProvider.of<AppBloc>(context).name}",
                       style: whiteText12,
                     )
                   ],
@@ -56,9 +55,14 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            ItemSelectWidget(
-              text: S.current.home_select_1,
-              image: Assets.images.home1.path,
+            InkWell(
+              onTap: () {
+                bloc.emit(ChangeActive(1));
+              },
+              child: ItemSelectWidget(
+                text: S.current.home_select_1,
+                image: Assets.images.home1.path,
+              ),
             ),
             SizedBox(
               height: 10.h,
@@ -73,7 +77,6 @@ class HomePage extends StatelessWidget {
             ItemSelectWidget(
               text: S.current.home_select_3,
               image: Assets.images.home3.path,
-
             ),
           ],
         );

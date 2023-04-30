@@ -16,7 +16,7 @@ class QuestionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit()..homeInitial(),
       child: Builder(
         builder: (context) {
           return _buildPage(context);

@@ -20,6 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(count) =>
+      "{count, plural, =0{ما هو جنسك ؟} =1{ما هو عمرك ؟} =2{هل لديك سعال ؟} =3{هل لديك حمى ؟} =4{هل لديك التهاب في الحلق ؟} =5{هل تعانين من ضيق في التنفس؟} =6{هل تعاني من صداع في الرأس ؟} =7{هل اتصلت بشخص تم التأكد من إصابته بـكرونا ؟} other{${count} wombats}}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about_us": MessageLookupByLibrary.simpleMessage("من نحن"),
@@ -36,8 +39,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "email_found": MessageLookupByLibrary.simpleMessage(
             "الحساب موجود بالفعل لهذا البريد الإلكتروني."),
-        "email_not_found": MessageLookupByLibrary.simpleMessage(
-            "لم يتم العثور على بريدك الإلكتروني."),
         "enter_code_plz":
             MessageLookupByLibrary.simpleMessage("أدخل الرمز من فضلك"),
         "enter_confirm_password":
@@ -63,8 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_title":
             MessageLookupByLibrary.simpleMessage("ماذا تريد أن تفعل اليوم؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن!"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "nQuestion": m0,
         "name": MessageLookupByLibrary.simpleMessage("اسم"),
         "name_updated": MessageLookupByLibrary.simpleMessage("تم تحديث اسمك."),
         "old_paa": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
@@ -89,7 +90,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "send": MessageLookupByLibrary.simpleMessage("ارسل"),
         "setting": MessageLookupByLibrary.simpleMessage("اعدادات"),
         "sign_up": MessageLookupByLibrary.simpleMessage("التسجيل"),
-        "sign_up_now": MessageLookupByLibrary.simpleMessage("اشترك الآن!"),
         "test": MessageLookupByLibrary.simpleMessage("اختبر"),
         "test_select_1":
             MessageLookupByLibrary.simpleMessage("من خلال بعض الأسئلة"),

@@ -31,7 +31,7 @@ class AuthContainer extends StatelessWidget {
           listener: (context, state) {
             if (state is LoginSusses) {
               BlocProvider.of<AppBloc>(context).getUserData();
-              context.router.push(const HomeContainer());
+              context.router.push(HomeContainer());
               context.router.popUntil((route) => route == HomeContainer());
             } else if (state is RegisterSusses) {
               context.router.pop();
