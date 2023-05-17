@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +7,7 @@ import 'package:untitled/resource/generated/assets.gen.dart';
 import 'package:untitled/resource/styles/app_colors.dart';
 import 'package:untitled/resource/styles/values.dart';
 import 'package:untitled/src/app/bloc/app_bloc.dart';
+import 'package:untitled/src/core/navigation/routes/AppRouter.gr.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_cubit.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_state.dart';
 import 'package:untitled/src/feature/home/presentation/widgets/corners_back.dart';
@@ -67,17 +69,28 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            ItemSelectWidget(
-              text: S.current.home_select_2,
-              image: Assets.images.home2.path,
+            InkWell(
+              onTap: () {
+                context.router.push(AppHtmlRoute(
+                    url: "https://www.usaid.gov/egypt/covid-19-response"));
+              },
+              child: ItemSelectWidget(
+                text: S.current.home_select_2,
+                image: Assets.images.home2.path,
+              ),
             ),
             SizedBox(
               height: 10.h,
             ),
-            ItemSelectWidget(
-              text: S.current.home_select_3,
-              image: Assets.images.home3.path,
-            ),
+            InkWell(
+                onTap: () {
+                  context.router.push(AppHtmlRoute(
+                      url: "https://www.usaid.gov/egypt/covid-19-response"));
+                },
+                child: ItemSelectWidget(
+                  text: S.current.home_select_3,
+                  image: Assets.images.home3.path,
+                )),
           ],
         );
       },

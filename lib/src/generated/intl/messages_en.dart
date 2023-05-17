@@ -21,12 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   static String m0(count) =>
-      "{count, plural, =0{What’s your gender ? Male,Female} =1{What’s your age ? More than or equal 60,Less than 60} =2{Do you have a cough ? Yes,No} =3{Do you have a fever ? Yes,No} =4{Do you have a sore throat ? Yes,No} =5{Do you have a shortness of breath ? Yes,No} =6{Do you have a headache ? Yes,No} =7{Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} other{${count} wombats}}";
-
-  static String m1(count) =>
       "${Intl.plural(count, zero: 'no wombats', one: '1 wombat', other: '${count} wombats')}";
 
-  static String m2(gender) =>
+  static String m1(gender) =>
       "${Intl.gender(gender, female: 'she', male: 'he', other: 'they')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -61,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("forget password"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("don\'t have an account?"),
+        "have_covied": MessageLookupByLibrary.simpleMessage(
+            "Sorry , You Have Covied , Stay At Home."),
         "hello": MessageLookupByLibrary.simpleMessage("Hello,"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "home_select_1": MessageLookupByLibrary.simpleMessage(
@@ -74,11 +73,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("login"),
         "login_now": MessageLookupByLibrary.simpleMessage("login now!"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
-        "nQuestion": m0,
-        "nWombats": m1,
+        "nQuestion": MessageLookupByLibrary.simpleMessage(
+            "\$What’s your gender ? & Male,Female \$What’s your age ? & More than or equal 60,Less than 60 \$Do you have a cough ? & Yes,No \$Do you have a fever ? & Yes,No \$Do you have a sore throat ? & Yes,No \$Do you have a shortness of breath ? & Yes,No \$Do you have a headache ? & Yes,No \$Have you contacted a person who was confirmed to be infected with covid-19 ? & Yes,No"),
+        "nWombats": m0,
         "name": MessageLookupByLibrary.simpleMessage("name"),
         "name_updated":
             MessageLookupByLibrary.simpleMessage("Your Name Is Updated."),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "not_have_covied": MessageLookupByLibrary.simpleMessage(
+            "You are Good , You Can Be Free."),
         "old_paa": MessageLookupByLibrary.simpleMessage("old password"),
         "pass_updated":
             MessageLookupByLibrary.simpleMessage("Your Password Is Updated."),
@@ -87,8 +90,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "The password provided is too weak."),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal information"),
+        "pick_image": MessageLookupByLibrary.simpleMessage("Add Image"),
+        "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
-        "pronoun": m2,
+        "pronoun": m1,
         "receive_code":
             MessageLookupByLibrary.simpleMessage("Don\'t receive code"),
         "register_susses": MessageLookupByLibrary.simpleMessage(
@@ -104,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Settings"),
         "sign_up": MessageLookupByLibrary.simpleMessage("sign up"),
         "sign_up_now": MessageLookupByLibrary.simpleMessage("sign up now!"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "test": MessageLookupByLibrary.simpleMessage("Test"),
         "test_select_1":
             MessageLookupByLibrary.simpleMessage("By some questions"),

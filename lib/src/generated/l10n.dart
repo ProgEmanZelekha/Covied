@@ -613,10 +613,10 @@ class S {
     );
   }
 
-  /// `{What’s your gender ? Male,Female What’s your age ? More than or equal 60,Less than 60 Do you have a cough ? Yes,No $ Do you have a fever ? Yes,No} {Do you have a sore throat ? Yes,No} {Do you have a shortness of breath ? Yes,No} {Do you have a headache ? Yes,No} {Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} }`
+  /// `$What’s your gender ? & Male,Female $What’s your age ? & More than or equal 60,Less than 60 $Do you have a cough ? & Yes,No $Do you have a fever ? & Yes,No $Do you have a sore throat ? & Yes,No $Do you have a shortness of breath ? & Yes,No $Do you have a headache ? & Yes,No $Have you contacted a person who was confirmed to be infected with covid-19 ? & Yes,No`
   String get nQuestion {
     return Intl.message(
-      '{What’s your gender ? Male,Female What’s your age ? More than or equal 60,Less than 60 Do you have a cough ? Yes,No \$ Do you have a fever ? Yes,No} {Do you have a sore throat ? Yes,No} {Do you have a shortness of breath ? Yes,No} {Do you have a headache ? Yes,No} {Have you contacted a person who was confirmed to be infected with covid-19 ? Yes,No} }',
+      '\$What’s your gender ? & Male,Female \$What’s your age ? & More than or equal 60,Less than 60 \$Do you have a cough ? & Yes,No \$Do you have a fever ? & Yes,No \$Do you have a sore throat ? & Yes,No \$Do you have a shortness of breath ? & Yes,No \$Do you have a headache ? & Yes,No \$Have you contacted a person who was confirmed to be infected with covid-19 ? & Yes,No',
       name: 'nQuestion',
       desc: '',
       args: [],
@@ -663,6 +663,66 @@ class S {
   // skipped getter for the 'question_answer[7][0]' key
 
   // skipped getter for the 'question_answer[7][1]' key
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous`
+  String get previous {
+    return Intl.message(
+      'Previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sorry , You Have Covied , Stay At Home.`
+  String get have_covied {
+    return Intl.message(
+      'Sorry , You Have Covied , Stay At Home.',
+      name: 'have_covied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are Good , You Can Be Free.`
+  String get not_have_covied {
+    return Intl.message(
+      'You are Good , You Can Be Free.',
+      name: 'not_have_covied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get pick_image {
+    return Intl.message(
+      'Add Image',
+      name: 'pick_image',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -37,7 +37,7 @@ class HomeContainer extends StatelessWidget {
         color: AppColors.current.primaryColor,
         padding: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
         child: AutoTabsRouter(
-            routes: [HomeRoute(), TestRoute(), ProfileRoute()],
+            routes: [HomeRoute(), EmptyTestRoute(), ProfileRoute()],
             builder: (context, child, animation) {
               tabsRouter = AutoTabsRouter.of(context);
               return Scaffold(

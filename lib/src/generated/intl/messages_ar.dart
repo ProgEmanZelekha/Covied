@@ -20,9 +20,6 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(count) =>
-      "{count, plural, =0{ما هو جنسك ؟} =1{ما هو عمرك ؟} =2{هل لديك سعال ؟} =3{هل لديك حمى ؟} =4{هل لديك التهاب في الحلق ؟} =5{هل تعانين من ضيق في التنفس؟} =6{هل تعاني من صداع في الرأس ؟} =7{هل اتصلت بشخص تم التأكد من إصابته بـكرونا ؟} other{${count} wombats}}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about_us": MessageLookupByLibrary.simpleMessage("من نحن"),
@@ -53,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "forget_password":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "have_covied": MessageLookupByLibrary.simpleMessage(
+            "انت لديك كوفيد للاسف  , من فضلك ابق فى المنزل"),
         "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
         "home": MessageLookupByLibrary.simpleMessage("وطن"),
         "home_select_1": MessageLookupByLibrary.simpleMessage(
@@ -65,9 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ماذا تريد أن تفعل اليوم؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
-        "nQuestion": m0,
         "name": MessageLookupByLibrary.simpleMessage("اسم"),
         "name_updated": MessageLookupByLibrary.simpleMessage("تم تحديث اسمك."),
+        "next": MessageLookupByLibrary.simpleMessage("التالى"),
+        "not_have_covied": MessageLookupByLibrary.simpleMessage(
+            "انت بصحة جيدة , يمكنك التصرف بحرية"),
         "old_paa": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
         "pass_updated": MessageLookupByLibrary.simpleMessage(
             "يتم تحديث كلمة المرور الخاصة بك."),
@@ -76,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "كلمة المرور المقدمة ضعيفة للغاية."),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
+        "pick_image": MessageLookupByLibrary.simpleMessage("اختر الصورة"),
+        "previous": MessageLookupByLibrary.simpleMessage("السابق"),
         "profile": MessageLookupByLibrary.simpleMessage("ملف تعريف"),
         "receive_code": MessageLookupByLibrary.simpleMessage("لا تتلقى الرمز"),
         "register_susses": MessageLookupByLibrary.simpleMessage(
@@ -90,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send": MessageLookupByLibrary.simpleMessage("ارسل"),
         "setting": MessageLookupByLibrary.simpleMessage("اعدادات"),
         "sign_up": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "submit": MessageLookupByLibrary.simpleMessage("النتيجة"),
         "test": MessageLookupByLibrary.simpleMessage("اختبر"),
         "test_select_1":
             MessageLookupByLibrary.simpleMessage("من خلال بعض الأسئلة"),

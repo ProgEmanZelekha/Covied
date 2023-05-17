@@ -79,7 +79,9 @@ class ProfilePage extends StatelessWidget {
             image: Assets.images.infoProfile,
             title: S.current.about_us,
             padding: 0.w,
-            onClick: () {context.router.push(const AboutUsRoute());},
+            onClick: () {
+              // context.router.push(const AboutUsRoute());
+              },
           ),
           SizedBox(
             height: 10.h,
@@ -88,7 +90,9 @@ class ProfilePage extends StatelessWidget {
             image: Assets.images.phoneProfile,
             title: S.current.contact_us,
             padding: 8.w,
-            onClick: () {context.router.push(const ContactUsRoute());},
+            onClick: () {
+              // context.router.push(const ContactUsRoute());
+              },
           ),
           SizedBox(
             height: 10.h,

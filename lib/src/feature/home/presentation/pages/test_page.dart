@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:untitled/resource/generated/assets.gen.dart';
-import 'package:untitled/resource/styles/app_colors.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:untitled/resource/styles/values.dart';
 import 'package:untitled/src/app/bloc/app_bloc.dart';
 import 'package:untitled/src/core/navigation/routes/AppRouter.gr.dart';
+import 'package:untitled/src/feature/home/presentation/manager/home/home_cubit.dart';
 import 'package:untitled/src/feature/home/presentation/widgets/corners_back.dart';
 import 'package:untitled/src/feature/home/presentation/widgets/item_select_widget.dart';
 import 'package:untitled/src/generated/l10n.dart';
@@ -52,7 +53,7 @@ class TestPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  _appRouter.push(QuestionRoute());
+                  _appRouter.push(QuestionRoute(type: 1));
                 },
                 child: ItemSelectWidget(
                   text: S.current.test_select_1,
@@ -64,19 +65,29 @@ class TestPage extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              ItemSelectWidget(
-                text: S.current.test_select_2,
-                imageSize: 80.w,
-                image: Assets.images.test2,
-                isSvg: true,
+              InkWell(
+                onTap: () {
+                  // bloc.pickImage();
+                  _appRouter.push(PickImage(type: 1));
+                },
+                child: ItemSelectWidget(
+                  text: S.current.test_select_2,
+                  imageSize: 80.w,
+                  image: Assets.images.test2,
+                  isSvg: true,
+                ),
               ),
               SizedBox(
                 height: 10.h,
               ),
-              ItemSelectWidget(
-                text: S.current.test_select_3,
-                imageSize: 80.w,
-              ),
+              InkWell(
+                  onTap: () {
+                    _appRouter.push(QuestionRoute(type: 2));
+                  },
+                  child: ItemSelectWidget(
+                    text: S.current.test_select_3,
+                    imageSize: 80.w,
+                  )),
             ]);
       },
     );
