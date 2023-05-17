@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_us": MessageLookupByLibrary.simpleMessage("About Us"),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("already have account"),
+        "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -56,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter verification code we send to email"),
         "forget_password":
             MessageLookupByLibrary.simpleMessage("forget password"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("don\'t have an account?"),
         "have_covied": MessageLookupByLibrary.simpleMessage(

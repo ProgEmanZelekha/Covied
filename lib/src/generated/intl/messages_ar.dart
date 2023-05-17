@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_us": MessageLookupByLibrary.simpleMessage("من نحن"),
         "already_have_account":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل"),
+        "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
@@ -49,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل رمز التحقق الذي نرسله إلى البريد الإلكتروني"),
         "forget_password":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "have_covied": MessageLookupByLibrary.simpleMessage(
             "انت لديك كوفيد للاسف  , من فضلك ابق فى المنزل"),

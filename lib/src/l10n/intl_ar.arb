@@ -82,7 +82,7 @@
   "submit": "النتيجة",
   "have_covied": "انت لديك كوفيد للاسف  , من فضلك ابق فى المنزل",
   "not_have_covied": "انت بصحة جيدة , يمكنك التصرف بحرية",
-  "pick_image": "اختر الصورة"
-
-
+  "pick_image": "اختر الصورة",
+  "camera": "Camera",
+  "gallery": "Gallery"
 }

@@ -39,6 +39,7 @@ class ItemQuestion extends StatelessWidget {
               ),
               Text(
                 questionModel.question,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: AppColors.current.secondaryColor,
                     fontSize: 16.sp,

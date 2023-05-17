@@ -77,7 +77,7 @@
   "submit": "Submit",
   "have_covied": "Sorry , You Have Covied , Stay At Home.",
   "not_have_covied": "You are Good , You Can Be Free.",
-  "pick_image": "Add Image"
-
-
+  "pick_image": "Add Image",
+  "camera": "Camera",
+  "gallery": "Gallery"
 }

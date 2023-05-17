@@ -33,17 +33,20 @@ class QuestionPage extends StatelessWidget {
         type: 2,
       ));
     }
-    return Scaffold(
+    return
+      Scaffold(
         backgroundColor: AppColors.current.primaryColor,
-        body: Column(
-          children: [
-            AppBarBack(
-              title: S.current.test_select_1,
-              big: false,
-            ),
-            Expanded(
-              child: Container(
-                color: AppColors.current.primaryColor,
+        body:
+        Container(
+          color: AppColors.current.primaryColor,
+
+          child: Column(
+            children: [
+              AppBarBack(
+                title: S.current.test_select_1,
+                big: false,
+              ),
+              Expanded(
                 child: CarouselSlider(
                   items: bloc.imageSliders,
                   options: CarouselOptions(
@@ -61,16 +64,14 @@ class QuestionPage extends StatelessWidget {
                   carouselController: bloc.controller,
                 ),
               ),
-            ),
-            BlocBuilder<HomeCubit, HomeState>(
-              buildWhen: (ps, cs) =>
-                  cs is ChangePreviousActive || cs is ChangeNextActive,
-              builder: (context, state) {
-                return Row(
-                  children: [
-                    Visibility(
-                      child: InkWell(
-                        child: Expanded(
+              BlocBuilder<HomeCubit, HomeState>(
+                buildWhen: (ps, cs) =>
+                    cs is ChangePreviousActive || cs is ChangeNextActive,
+                builder: (context, state) {
+                  return Row(
+                    children: [
+                      Visibility(
+                        child: InkWell(
                           child: Container(
                             padding: EdgeInsets.all(8.w),
                             margin: EdgeInsets.all(16.w),
@@ -85,16 +86,14 @@ class QuestionPage extends StatelessWidget {
                                   color: Colors.white, fontSize: 16.sp),
                             ),
                           ),
+                          onTap: () {
+                            bloc.controller.previousPage();
+                          },
                         ),
-                        onTap: () {
-                          bloc.controller.previousPage();
-                        },
+                        visible: bloc.previous,
                       ),
-                      visible: bloc.previous,
-                    ),
-                    Spacer(),
-                    InkWell(
-                      child: Expanded(
+                      Spacer(),
+                      InkWell(
                         child: Container(
                           padding: EdgeInsets.all(8.w),
                           margin: EdgeInsets.all(16.w),
@@ -109,20 +108,20 @@ class QuestionPage extends StatelessWidget {
                                 TextStyle(color: Colors.white, fontSize: 16.sp),
                           ),
                         ),
-                      ),
-                      onTap: () {
-                        if (bloc.next) {
-                          bloc.controller.nextPage();
-                        } else {
-                          bloc.getResult();
-                        }
-                      },
-                    )
-                  ],
-                );
-              },
-            )
-          ],
+                        onTap: () {
+                          if (bloc.next) {
+                            bloc.controller.nextPage();
+                          } else {
+                            bloc.getResult();
+                          }
+                        },
+                      )
+                    ],
+                  );
+                },
+              )
+            ],
+          ),
         ));
   }
 }

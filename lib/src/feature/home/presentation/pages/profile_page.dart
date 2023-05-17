@@ -80,7 +80,7 @@ class ProfilePage extends StatelessWidget {
             title: S.current.about_us,
             padding: 0.w,
             onClick: () {
-              // context.router.push(const AboutUsRoute());
+              context.router.push(const AboutUsRoute());
               },
           ),
           SizedBox(
