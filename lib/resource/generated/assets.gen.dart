@@ -79,6 +79,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/setting_them.svg
   String get settingThem => 'assets/images/setting_them.svg';
 
+  /// File path: assets/images/stay_home.png
+  AssetGenImage get stayHome =>
+      const AssetGenImage('assets/images/stay_home.png');
+
   /// File path: assets/images/test.svg
   String get test => 'assets/images/test.svg';
 
@@ -87,6 +91,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/test_2.svg
   String get test2 => 'assets/images/test_2.svg';
+
+  /// File path: assets/images/you_fine.png
+  AssetGenImage get youFine =>
+      const AssetGenImage('assets/images/you_fine.png');
 
   /// List of all assets
   List<dynamic> get values => [
@@ -111,9 +119,11 @@ class $AssetsImagesGen {
         settingLanguage,
         settingProfile,
         settingThem,
+        stayHome,
         test,
         test1,
-        test2
+        test2,
+        youFine
       ];
 }
 
@@ -121,10 +131,12 @@ class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const String labels = 'assets/labels.txt';
   static const String loading = 'assets/loading.json';
+  static const String modelCOVID = 'assets/model_COVID.tflite';
 
   /// List of all assets
-  List<String> get values => [loading];
+  List<String> get values => [labels, loading, modelCOVID];
 }
 
 class AssetGenImage {

@@ -4,12 +4,17 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:untitled/resource/generated/assets.gen.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_state.dart';
+import 'package:untitled/src/feature/home/presentation/manager/model/corona_model.dart';
 import 'package:untitled/src/feature/home/presentation/manager/model/question_model.dart';
 import 'package:untitled/src/feature/home/presentation/pages/question/item_question.dart';
 import 'package:untitled/src/generated/l10n.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:image/image.dart' as img;
+import 'package:dio/dio.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
@@ -18,8 +23,17 @@ class HomeCubit extends Cubit<HomeState> {
   bool previous = false;
   bool next = true;
 
+  // List? result;
+  // late final Interpreter interpreter;
+  // late final List<String> labels;
+  // Tensor? inputTensor;
+  // Tensor? outputTensor;
   File? image;
+
+  // img.Image? imageModel;
   File? imageTemp;
+
+  // Map<String, int>? classification;
 
   void homeInitial() async {
     List<String> lines = S.current.nQuestion.split('\$');
@@ -45,11 +59,12 @@ class HomeCubit extends Cubit<HomeState> {
 
   void changeSelected(QuestionModel questionModel) {
     for (var e in imageSliders) {
-      if(e is ItemQuestion){
-      if (e .questionModel.id == questionModel.id) {
-        e.questionModel = questionModel;
+      if (e is ItemQuestion) {
+        if (e.questionModel.id == questionModel.id) {
+          e.questionModel = questionModel;
+        }
       }
-    }}
+    }
     emit(ChangeSelectedActive(
         QuestionModel(image: "", question: "", answer: [], id: 1)));
   }
@@ -73,13 +88,21 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  Future<bool> getResult() async {
-    var haveCovid = true;
-    emit(HomeError(
-        message:
-            haveCovid ? S.current.have_covied : S.current.not_have_covied));
+  Future<bool> getResult(type) async {
+    if (image != null) {
+      emit(HomeLoading(true));
+      // await classifyImage(image!);
+      emit(HomeLoading(false));
+    }
+    if (type == 2) {
+      postData();
+    }
+    // var haveCovid = true;
+    // emit(HomeError(
+    //     message:
+    //         haveCovid ? S.current.have_covied : S.current.not_have_covied));
 
-    return haveCovid;
+    return true;
   }
 
   void pickImage() async {
@@ -105,4 +128,138 @@ class HomeCubit extends Cubit<HomeState> {
       print('Failed to pick image: $e');
     }
   }
+
+  Future<void> postData() async {
+    List<int> answers = [];
+    for (var e in imageSliders) {
+      if (e is ItemQuestion) {
+        for (int i = 0; i < e.questionModel.answer.length; i++) {
+          if (e.questionModel.answer[i].active) {
+            answers.add(i);
+          }
+        }
+      }
+    }
+    if (answers.length == 8) {
+      emit(HomeLoading(true));
+
+      var dio = GetIt.instance.get<Dio>();
+      try {
+        final response = await dio.post(
+            'https://proj-5onb.onrender.com/predictions',
+            data: {"values": answers});
+        emit(HomeLoading(false));
+
+        final data = CoronaModel.fromJson(response.data);
+          emit(HomeResult(data.data.toString().contains("positive")?true:false));
+        print('my data is ${data.data}');
+        // emit(CoronaSuccess(data));
+      } on DioError catch (e) {
+        emit(HomeLoading(false));
+
+        print('fffff${e.toString()}');
+      }
+    } else {
+      emit(HomeError(message: ""));
+
+      emit(HomeError(message: "Please Answer All Questions"));
+    }
+  }
+
+// Future<void> processImage() async {
+//   if (image != null) {
+//     // Read image bytes from file
+//     final imageData = image?.readAsBytesSync();
+//
+//     // Decode image using package:image/image.dart (https://pub.dev/image)
+//     imageModel = img.decodeImage(imageData!);
+//
+//     // Resize image for model input (Mobilenet use [224, 224])
+//     final imageInput = img.copyResize(
+//       imageModel!,
+//       width: 224,
+//       height: 224,
+//     );
+//
+//     // Get image matrix representation [224, 224, 3]
+//     final imageMatrix = List.generate(
+//       imageInput.height,
+//       (y) => List.generate(
+//         imageInput.width,
+//         (x) {
+//           final pixel = imageInput.getPixel(x, y);
+//           return [pixel.r, pixel.g, pixel.b];
+//         },
+//       ),
+//     );
+//
+//     // Run model inference
+//     await runInference(imageMatrix);
+//   }
+// }
+
+// classifyImage(File image) async {
+//   var output = await interpreter.runModelOnImage(
+//     path: image.path,
+//     numResults: 2,
+//     threshold: 0.5,
+//     imageMean: 127.5,
+//     imageStd: 127.5,
+//   );
+//   print("$output kkkkkk");
+//   result = output?[0];
+//
+//   // setState(() {
+//   //   _loading = false;
+//   //   _outputs = output!;
+//   // });
+// }
+// Future<void> runInference(
+//   List<List<List<num>>> imageMatrix,
+// ) async {
+//   // Set tensor input [1, 224, 224, 3]
+//   final input = [imageMatrix];
+//   // Set tensor output [1, 1001]
+//   final output = [List<double>.filled(2, 0)];
+//
+//   // Run inference
+//   interpreter.run(input, output);
+//
+//   // Get first output tensor
+//   final result = output.first;
+//
+//   // Set classification map {label: points}
+//   classification = <String, int>{};
+//
+//   for (var i = 0; i < result.length; i++) {
+//     if (result[i] != 0) {
+//       // Set label: points
+//       classification![labels[i]] = result[i].toInt();
+//     }
+//   }
+//   print(classification);
+// }
+
+// loadModel() async {
+//   // if(interpreter.isAllocated){
+//   //   interpreter.close();
+//   // }
+//   final options = InterpreterOptions();
+//
+//   // Use XNNPACK Delegate
+//   if (Platform.isAndroid) {
+//     options.addDelegate(XNNPackDelegate());
+//   }
+//   interpreter = await Interpreter.fromAsset("assets/model_COVID.tflite",
+//       options: options
+//       // model: "assets/model_COVID.tflite",
+//       // labels.txt: "assets/labels.txt.txt",
+//       );
+//   // Get tensor input shape [1, 224, 224, 3]
+//   inputTensor = interpreter.getInputTensors().first;
+//   // Get tensor output shape [1, 1001]
+//   outputTensor = interpreter.getOutputTensors().first;
+//   final labelTxt = await rootBundle.loadString("assets/labels.txt");
+//   labels = labelTxt.split("\n");
+// }
 }

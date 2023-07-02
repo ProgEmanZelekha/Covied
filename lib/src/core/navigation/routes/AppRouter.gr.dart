@@ -11,85 +11,86 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i22;
-import 'package:flutter/material.dart' as _i23;
+import 'package:auto_route/auto_route.dart' as _i23;
+import 'package:flutter/material.dart' as _i24;
 
-import '../../../feature/auth/presentation/pages/forget_pass_page.dart' as _i12;
-import '../../../feature/auth/presentation/pages/login_page.dart' as _i10;
-import '../../../feature/auth/presentation/pages/otp_page.dart' as _i13;
-import '../../../feature/auth/presentation/pages/register_page.dart' as _i11;
+import '../../../feature/auth/presentation/pages/forget_pass_page.dart' as _i13;
+import '../../../feature/auth/presentation/pages/login_page.dart' as _i11;
+import '../../../feature/auth/presentation/pages/otp_page.dart' as _i14;
+import '../../../feature/auth/presentation/pages/register_page.dart' as _i12;
 import '../../../feature/auth/presentation/widgets/auth_container.dart' as _i1;
 import '../../../feature/home/presentation/pages/app_html_page.dart' as _i9;
-import '../../../feature/home/presentation/pages/empty_test_page.dart' as _i16;
+import '../../../feature/home/presentation/pages/empty_test_page.dart' as _i17;
 import '../../../feature/home/presentation/pages/home_container.dart' as _i2;
-import '../../../feature/home/presentation/pages/home_page.dart' as _i15;
-import '../../../feature/home/presentation/pages/pickImage.dart' as _i19;
+import '../../../feature/home/presentation/pages/home_page.dart' as _i16;
+import '../../../feature/home/presentation/pages/pickImage.dart' as _i20;
 import '../../../feature/home/presentation/pages/profile/about_us_page.dart'
     as _i4;
 import '../../../feature/home/presentation/pages/profile/change_password_page.dart'
-    as _i14;
+    as _i15;
 import '../../../feature/home/presentation/pages/profile/contact_us_page.dart'
     as _i5;
 import '../../../feature/home/presentation/pages/profile/edite_profile_page.dart'
-    as _i21;
+    as _i22;
 import '../../../feature/home/presentation/pages/profile/EmptyProfilePage.dart'
     as _i3;
 import '../../../feature/home/presentation/pages/profile/profile_info_page.dart'
-    as _i20;
+    as _i21;
 import '../../../feature/home/presentation/pages/profile/settings_page.dart'
     as _i6;
-import '../../../feature/home/presentation/pages/profile_page.dart' as _i17;
+import '../../../feature/home/presentation/pages/profile_page.dart' as _i18;
 import '../../../feature/home/presentation/pages/question/question_page.dart'
     as _i7;
 import '../../../feature/home/presentation/pages/question/question_result_page.dart'
     as _i8;
-import '../../../feature/home/presentation/pages/test_page.dart' as _i18;
+import '../../../feature/home/presentation/pages/test_page.dart' as _i19;
+import '../../widget/sharedView/susses_states.dart' as _i10;
 
-class AppRouter extends _i22.RootStackRouter {
-  AppRouter([_i23.GlobalKey<_i23.NavigatorState>? navigatorKey])
+class AppRouter extends _i23.RootStackRouter {
+  AppRouter([_i24.GlobalKey<_i24.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i22.PageFactory> pagesMap = {
+  final Map<String, _i23.PageFactory> pagesMap = {
     AuthContainer.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.AuthContainer(),
       );
     },
     HomeContainer.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.HomeContainer(),
       );
     },
     EmptyProfileRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.EmptyProfilePage(),
       );
     },
     AboutUsRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i4.AboutUsPage(),
       );
     },
     ContactUsRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i5.ContactUsPage(),
       );
     },
     SettingsRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i6.SettingsPage(),
       );
     },
     QuestionRoute.name: (routeData) {
       final args = routeData.argsAs<QuestionRouteArgs>();
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i7.QuestionPage(
           key: args.key,
@@ -98,14 +99,14 @@ class AppRouter extends _i22.RootStackRouter {
       );
     },
     QuestionResultRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i8.QuestionResultPage(),
       );
     },
     AppHtmlRoute.name: (routeData) {
       final args = routeData.argsAs<AppHtmlRouteArgs>();
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i9.AppHtmlPage(
           key: args.key,
@@ -113,103 +114,114 @@ class AppRouter extends _i22.RootStackRouter {
         ),
       );
     },
+    SussesStates.name: (routeData) {
+      final args = routeData.argsAs<SussesStatesArgs>();
+      return _i23.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i10.SussesStates(
+          key: args.key,
+          message: args.message,
+          image: args.image,
+        ),
+      );
+    },
     LoginRoute.name: (routeData) {
       final args = routeData.argsAs<LoginRouteArgs>(
           orElse: () => const LoginRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i10.LoginPage(key: args.key),
+        child: _i11.LoginPage(key: args.key),
       );
     },
     RegisterRoute.name: (routeData) {
       final args = routeData.argsAs<RegisterRouteArgs>(
           orElse: () => const RegisterRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i11.RegisterPage(key: args.key),
+        child: _i12.RegisterPage(key: args.key),
       );
     },
     ForgetPassRoute.name: (routeData) {
       final args = routeData.argsAs<ForgetPassRouteArgs>(
           orElse: () => const ForgetPassRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i12.ForgetPassPage(key: args.key),
+        child: _i13.ForgetPassPage(key: args.key),
       );
     },
     OtpRoute.name: (routeData) {
       final args =
           routeData.argsAs<OtpRouteArgs>(orElse: () => const OtpRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i13.OtpPage(key: args.key),
+        child: _i14.OtpPage(key: args.key),
       );
     },
     ResetPassword.name: (routeData) {
       final args = routeData.argsAs<ResetPasswordArgs>();
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i14.ChangePasswordPage(
+        child: _i15.ChangePasswordPage(
           key: args.key,
           type: args.type,
         ),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i15.HomePage(),
+        child: const _i16.HomePage(),
       );
     },
     EmptyTestRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i16.EmptyTestPage(),
+        child: const _i17.EmptyTestPage(),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i17.ProfilePage(),
+        child: const _i18.ProfilePage(),
       );
     },
     TestRoute.name: (routeData) {
       final args =
           routeData.argsAs<TestRouteArgs>(orElse: () => const TestRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i18.TestPage(key: args.key),
+        child: _i19.TestPage(key: args.key),
       );
     },
     PickImage.name: (routeData) {
       final args = routeData.argsAs<PickImageArgs>();
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i19.PickImage(
+        child: _i20.PickImage(
           key: args.key,
           type: args.type,
         ),
       );
     },
     ProfileInfoRoute.name: (routeData) {
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i20.ProfileInfoPage(),
+        child: const _i21.ProfileInfoPage(),
       );
     },
     EditeProfileRoute.name: (routeData) {
       final args = routeData.argsAs<EditeProfileRouteArgs>(
           orElse: () => const EditeProfileRouteArgs());
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i21.EditeProfilePage(key: args.key),
+        child: _i22.EditeProfilePage(key: args.key),
       );
     },
     ChangePasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ChangePasswordRouteArgs>();
-      return _i22.MaterialPageX<dynamic>(
+      return _i23.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i14.ChangePasswordPage(
+        child: _i15.ChangePasswordPage(
           key: args.key,
           type: args.type,
         ),
@@ -218,123 +230,127 @@ class AppRouter extends _i22.RootStackRouter {
   };
 
   @override
-  List<_i22.RouteConfig> get routes => [
-        _i22.RouteConfig(
+  List<_i23.RouteConfig> get routes => [
+        _i23.RouteConfig(
           AuthContainer.name,
           path: '/auth-container',
           children: [
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               LoginRoute.name,
               path: '',
               parent: AuthContainer.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               RegisterRoute.name,
               path: 'register-page',
               parent: AuthContainer.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               ForgetPassRoute.name,
               path: 'forget-pass-page',
               parent: AuthContainer.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               OtpRoute.name,
               path: 'otp-page',
               parent: AuthContainer.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               ResetPassword.name,
               path: 'change-password-page',
               parent: AuthContainer.name,
             ),
           ],
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           HomeContainer.name,
           path: '/home-container',
           children: [
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               HomeRoute.name,
               path: '',
               parent: HomeContainer.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               EmptyTestRoute.name,
               path: 'empty-test-page',
               parent: HomeContainer.name,
               children: [
-                _i22.RouteConfig(
+                _i23.RouteConfig(
                   TestRoute.name,
                   path: '',
                   parent: EmptyTestRoute.name,
                 ),
-                _i22.RouteConfig(
+                _i23.RouteConfig(
                   PickImage.name,
                   path: 'pick-image',
                   parent: EmptyTestRoute.name,
                 ),
               ],
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               ProfileRoute.name,
               path: 'profile-page',
               parent: HomeContainer.name,
             ),
           ],
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           EmptyProfileRoute.name,
           path: '/empty-profile-page',
           children: [
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               ProfileInfoRoute.name,
               path: '',
               parent: EmptyProfileRoute.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               EditeProfileRoute.name,
               path: 'edite-profile-page',
               parent: EmptyProfileRoute.name,
             ),
-            _i22.RouteConfig(
+            _i23.RouteConfig(
               ChangePasswordRoute.name,
               path: 'change-password-page',
               parent: EmptyProfileRoute.name,
             ),
           ],
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           AboutUsRoute.name,
           path: '/about-us-page',
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           ContactUsRoute.name,
           path: '/contact-us-page',
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           SettingsRoute.name,
           path: '/',
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           QuestionRoute.name,
           path: '/question-page',
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           QuestionResultRoute.name,
           path: '/question-result-page',
         ),
-        _i22.RouteConfig(
+        _i23.RouteConfig(
           AppHtmlRoute.name,
           path: '/app-html-page',
+        ),
+        _i23.RouteConfig(
+          SussesStates.name,
+          path: '/susses-states',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.AuthContainer]
-class AuthContainer extends _i22.PageRouteInfo<void> {
-  const AuthContainer({List<_i22.PageRouteInfo>? children})
+class AuthContainer extends _i23.PageRouteInfo<void> {
+  const AuthContainer({List<_i23.PageRouteInfo>? children})
       : super(
           AuthContainer.name,
           path: '/auth-container',
@@ -346,8 +362,8 @@ class AuthContainer extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.HomeContainer]
-class HomeContainer extends _i22.PageRouteInfo<void> {
-  const HomeContainer({List<_i22.PageRouteInfo>? children})
+class HomeContainer extends _i23.PageRouteInfo<void> {
+  const HomeContainer({List<_i23.PageRouteInfo>? children})
       : super(
           HomeContainer.name,
           path: '/home-container',
@@ -359,8 +375,8 @@ class HomeContainer extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.EmptyProfilePage]
-class EmptyProfileRoute extends _i22.PageRouteInfo<void> {
-  const EmptyProfileRoute({List<_i22.PageRouteInfo>? children})
+class EmptyProfileRoute extends _i23.PageRouteInfo<void> {
+  const EmptyProfileRoute({List<_i23.PageRouteInfo>? children})
       : super(
           EmptyProfileRoute.name,
           path: '/empty-profile-page',
@@ -372,7 +388,7 @@ class EmptyProfileRoute extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.AboutUsPage]
-class AboutUsRoute extends _i22.PageRouteInfo<void> {
+class AboutUsRoute extends _i23.PageRouteInfo<void> {
   const AboutUsRoute()
       : super(
           AboutUsRoute.name,
@@ -384,7 +400,7 @@ class AboutUsRoute extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ContactUsPage]
-class ContactUsRoute extends _i22.PageRouteInfo<void> {
+class ContactUsRoute extends _i23.PageRouteInfo<void> {
   const ContactUsRoute()
       : super(
           ContactUsRoute.name,
@@ -396,7 +412,7 @@ class ContactUsRoute extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.SettingsPage]
-class SettingsRoute extends _i22.PageRouteInfo<void> {
+class SettingsRoute extends _i23.PageRouteInfo<void> {
   const SettingsRoute()
       : super(
           SettingsRoute.name,
@@ -408,9 +424,9 @@ class SettingsRoute extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.QuestionPage]
-class QuestionRoute extends _i22.PageRouteInfo<QuestionRouteArgs> {
+class QuestionRoute extends _i23.PageRouteInfo<QuestionRouteArgs> {
   QuestionRoute({
-    _i23.Key? key,
+    _i24.Key? key,
     required int type,
   }) : super(
           QuestionRoute.name,
@@ -430,7 +446,7 @@ class QuestionRouteArgs {
     required this.type,
   });
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   final int type;
 
@@ -442,7 +458,7 @@ class QuestionRouteArgs {
 
 /// generated route for
 /// [_i8.QuestionResultPage]
-class QuestionResultRoute extends _i22.PageRouteInfo<void> {
+class QuestionResultRoute extends _i23.PageRouteInfo<void> {
   const QuestionResultRoute()
       : super(
           QuestionResultRoute.name,
@@ -454,9 +470,9 @@ class QuestionResultRoute extends _i22.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.AppHtmlPage]
-class AppHtmlRoute extends _i22.PageRouteInfo<AppHtmlRouteArgs> {
+class AppHtmlRoute extends _i23.PageRouteInfo<AppHtmlRouteArgs> {
   AppHtmlRoute({
-    _i23.Key? key,
+    _i24.Key? key,
     required String url,
   }) : super(
           AppHtmlRoute.name,
@@ -476,7 +492,7 @@ class AppHtmlRouteArgs {
     required this.url,
   });
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   final String url;
 
@@ -487,9 +503,48 @@ class AppHtmlRouteArgs {
 }
 
 /// generated route for
-/// [_i10.LoginPage]
-class LoginRoute extends _i22.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({_i23.Key? key})
+/// [_i10.SussesStates]
+class SussesStates extends _i23.PageRouteInfo<SussesStatesArgs> {
+  SussesStates({
+    _i24.Key? key,
+    required String message,
+    String? image,
+  }) : super(
+          SussesStates.name,
+          path: '/susses-states',
+          args: SussesStatesArgs(
+            key: key,
+            message: message,
+            image: image,
+          ),
+        );
+
+  static const String name = 'SussesStates';
+}
+
+class SussesStatesArgs {
+  const SussesStatesArgs({
+    this.key,
+    required this.message,
+    this.image,
+  });
+
+  final _i24.Key? key;
+
+  final String message;
+
+  final String? image;
+
+  @override
+  String toString() {
+    return 'SussesStatesArgs{key: $key, message: $message, image: $image}';
+  }
+}
+
+/// generated route for
+/// [_i11.LoginPage]
+class LoginRoute extends _i23.PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({_i24.Key? key})
       : super(
           LoginRoute.name,
           path: '',
@@ -502,7 +557,7 @@ class LoginRoute extends _i22.PageRouteInfo<LoginRouteArgs> {
 class LoginRouteArgs {
   const LoginRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -511,9 +566,9 @@ class LoginRouteArgs {
 }
 
 /// generated route for
-/// [_i11.RegisterPage]
-class RegisterRoute extends _i22.PageRouteInfo<RegisterRouteArgs> {
-  RegisterRoute({_i23.Key? key})
+/// [_i12.RegisterPage]
+class RegisterRoute extends _i23.PageRouteInfo<RegisterRouteArgs> {
+  RegisterRoute({_i24.Key? key})
       : super(
           RegisterRoute.name,
           path: 'register-page',
@@ -526,7 +581,7 @@ class RegisterRoute extends _i22.PageRouteInfo<RegisterRouteArgs> {
 class RegisterRouteArgs {
   const RegisterRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -535,9 +590,9 @@ class RegisterRouteArgs {
 }
 
 /// generated route for
-/// [_i12.ForgetPassPage]
-class ForgetPassRoute extends _i22.PageRouteInfo<ForgetPassRouteArgs> {
-  ForgetPassRoute({_i23.Key? key})
+/// [_i13.ForgetPassPage]
+class ForgetPassRoute extends _i23.PageRouteInfo<ForgetPassRouteArgs> {
+  ForgetPassRoute({_i24.Key? key})
       : super(
           ForgetPassRoute.name,
           path: 'forget-pass-page',
@@ -550,7 +605,7 @@ class ForgetPassRoute extends _i22.PageRouteInfo<ForgetPassRouteArgs> {
 class ForgetPassRouteArgs {
   const ForgetPassRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -559,9 +614,9 @@ class ForgetPassRouteArgs {
 }
 
 /// generated route for
-/// [_i13.OtpPage]
-class OtpRoute extends _i22.PageRouteInfo<OtpRouteArgs> {
-  OtpRoute({_i23.Key? key})
+/// [_i14.OtpPage]
+class OtpRoute extends _i23.PageRouteInfo<OtpRouteArgs> {
+  OtpRoute({_i24.Key? key})
       : super(
           OtpRoute.name,
           path: 'otp-page',
@@ -574,7 +629,7 @@ class OtpRoute extends _i22.PageRouteInfo<OtpRouteArgs> {
 class OtpRouteArgs {
   const OtpRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -583,10 +638,10 @@ class OtpRouteArgs {
 }
 
 /// generated route for
-/// [_i14.ChangePasswordPage]
-class ResetPassword extends _i22.PageRouteInfo<ResetPasswordArgs> {
+/// [_i15.ChangePasswordPage]
+class ResetPassword extends _i23.PageRouteInfo<ResetPasswordArgs> {
   ResetPassword({
-    _i23.Key? key,
+    _i24.Key? key,
     required int type,
   }) : super(
           ResetPassword.name,
@@ -606,7 +661,7 @@ class ResetPasswordArgs {
     required this.type,
   });
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   final int type;
 
@@ -617,8 +672,8 @@ class ResetPasswordArgs {
 }
 
 /// generated route for
-/// [_i15.HomePage]
-class HomeRoute extends _i22.PageRouteInfo<void> {
+/// [_i16.HomePage]
+class HomeRoute extends _i23.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -629,9 +684,9 @@ class HomeRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.EmptyTestPage]
-class EmptyTestRoute extends _i22.PageRouteInfo<void> {
-  const EmptyTestRoute({List<_i22.PageRouteInfo>? children})
+/// [_i17.EmptyTestPage]
+class EmptyTestRoute extends _i23.PageRouteInfo<void> {
+  const EmptyTestRoute({List<_i23.PageRouteInfo>? children})
       : super(
           EmptyTestRoute.name,
           path: 'empty-test-page',
@@ -642,8 +697,8 @@ class EmptyTestRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.ProfilePage]
-class ProfileRoute extends _i22.PageRouteInfo<void> {
+/// [_i18.ProfilePage]
+class ProfileRoute extends _i23.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
@@ -654,9 +709,9 @@ class ProfileRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i18.TestPage]
-class TestRoute extends _i22.PageRouteInfo<TestRouteArgs> {
-  TestRoute({_i23.Key? key})
+/// [_i19.TestPage]
+class TestRoute extends _i23.PageRouteInfo<TestRouteArgs> {
+  TestRoute({_i24.Key? key})
       : super(
           TestRoute.name,
           path: '',
@@ -669,7 +724,7 @@ class TestRoute extends _i22.PageRouteInfo<TestRouteArgs> {
 class TestRouteArgs {
   const TestRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -678,10 +733,10 @@ class TestRouteArgs {
 }
 
 /// generated route for
-/// [_i19.PickImage]
-class PickImage extends _i22.PageRouteInfo<PickImageArgs> {
+/// [_i20.PickImage]
+class PickImage extends _i23.PageRouteInfo<PickImageArgs> {
   PickImage({
-    _i23.Key? key,
+    _i24.Key? key,
     required int type,
   }) : super(
           PickImage.name,
@@ -701,7 +756,7 @@ class PickImageArgs {
     required this.type,
   });
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   final int type;
 
@@ -712,8 +767,8 @@ class PickImageArgs {
 }
 
 /// generated route for
-/// [_i20.ProfileInfoPage]
-class ProfileInfoRoute extends _i22.PageRouteInfo<void> {
+/// [_i21.ProfileInfoPage]
+class ProfileInfoRoute extends _i23.PageRouteInfo<void> {
   const ProfileInfoRoute()
       : super(
           ProfileInfoRoute.name,
@@ -724,9 +779,9 @@ class ProfileInfoRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i21.EditeProfilePage]
-class EditeProfileRoute extends _i22.PageRouteInfo<EditeProfileRouteArgs> {
-  EditeProfileRoute({_i23.Key? key})
+/// [_i22.EditeProfilePage]
+class EditeProfileRoute extends _i23.PageRouteInfo<EditeProfileRouteArgs> {
+  EditeProfileRoute({_i24.Key? key})
       : super(
           EditeProfileRoute.name,
           path: 'edite-profile-page',
@@ -739,7 +794,7 @@ class EditeProfileRoute extends _i22.PageRouteInfo<EditeProfileRouteArgs> {
 class EditeProfileRouteArgs {
   const EditeProfileRouteArgs({this.key});
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   @override
   String toString() {
@@ -748,10 +803,10 @@ class EditeProfileRouteArgs {
 }
 
 /// generated route for
-/// [_i14.ChangePasswordPage]
-class ChangePasswordRoute extends _i22.PageRouteInfo<ChangePasswordRouteArgs> {
+/// [_i15.ChangePasswordPage]
+class ChangePasswordRoute extends _i23.PageRouteInfo<ChangePasswordRouteArgs> {
   ChangePasswordRoute({
-    _i23.Key? key,
+    _i24.Key? key,
     required int type,
   }) : super(
           ChangePasswordRoute.name,
@@ -771,7 +826,7 @@ class ChangePasswordRouteArgs {
     required this.type,
   });
 
-  final _i23.Key? key;
+  final _i24.Key? key;
 
   final int type;
 

@@ -39,6 +39,24 @@ class ChangeNextActive extends HomeState {
   List<Object> get props => [next];
 }
 
+class HomeLoading extends HomeState {
+  final bool show;
+
+  const HomeLoading(this.show);
+
+  @override
+  List<Object> get props => [show];
+}
+
+class HomeResult extends HomeState {
+  final bool haveCovid;
+
+  const HomeResult(this.haveCovid);
+
+  @override
+  List<Object> get props => [];
+}
+
 class ChangePreviousActive extends HomeState {
   final bool previous;
 
@@ -59,7 +77,9 @@ class HomeError extends HomeState {
 
 class PickImageFileState extends HomeState {
   final File image;
-  const PickImageFileState({required this.image}) ;
+
+  const PickImageFileState({required this.image});
+
   @override
   // TODO: implement props
   List<Object?> get props => [image];

@@ -636,34 +636,6 @@ class S {
     );
   }
 
-  // skipped getter for the 'question_answer[0][0]' key
-
-  // skipped getter for the 'question_answer[0][1]' key
-
-  // skipped getter for the 'question_answer[1][0]' key
-
-  // skipped getter for the 'question_answer[1][1]' key
-
-  // skipped getter for the 'question_answer[3][0]' key
-
-  // skipped getter for the 'question_answer[3][1]' key
-
-  // skipped getter for the 'question_answer[4][0]' key
-
-  // skipped getter for the 'question_answer[4][1]' key
-
-  // skipped getter for the 'question_answer[5][0]' key
-
-  // skipped getter for the 'question_answer[5][1]' key
-
-  // skipped getter for the 'question_answer[6][0]' key
-
-  // skipped getter for the 'question_answer[6][1]' key
-
-  // skipped getter for the 'question_answer[7][0]' key
-
-  // skipped getter for the 'question_answer[7][1]' key
-
   /// `Next`
   String get next {
     return Intl.message(

@@ -1,3 +1,4 @@
+import 'package:untitled/src/core/widget/sharedView/susses_states.dart';
 import 'package:untitled/src/feature/auth/presentation/widgets/auth_container.dart';
 import 'package:untitled/src/feature/auth/presentation/pages/forget_pass_page.dart';
 import 'package:auto_route/auto_route.dart';
@@ -56,6 +57,7 @@ import 'package:untitled/src/feature/home/presentation/pages/test_page.dart';
     AutoRoute<dynamic>(page: QuestionPage),
     AutoRoute<dynamic>(page: QuestionResultPage),
     AutoRoute<dynamic>(page: AppHtmlPage),
+    AutoRoute<dynamic>(page: SussesStates),
 
   ],
 )
