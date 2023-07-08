@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/resource/generated/assets.gen.dart';
 import 'package:untitled/resource/styles/app_colors.dart';
-import 'package:untitled/src/core/navigation/routes/AppRouter.gr.dart' as router;
+import 'package:untitled/src/core/navigation/routes/AppRouter.gr.dart'
+    as router;
 import 'package:untitled/src/core/widget/loading/full_over_loading.dart';
 import 'package:untitled/src/core/widget/sharedView/susses_dialog.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_cubit.dart';
@@ -77,7 +78,7 @@ class QuestionPage extends StatelessWidget {
                             options: CarouselOptions(
                                 enlargeCenterPage: true,
                                 autoPlay: false,
-                                initialPage: 1,
+                                initialPage: 0,
                                 viewportFraction: 0.9,
                                 aspectRatio: 1.0,
                                 reverse: false,
@@ -142,7 +143,7 @@ class QuestionPage extends StatelessWidget {
                                     if (bloc.next) {
                                       bloc.controller.nextPage();
                                     } else {
-                                      bloc.getResult(2);
+                                      bloc.getResult(type == 1 ? 2 : 3);
                                     }
                                   },
                                 )

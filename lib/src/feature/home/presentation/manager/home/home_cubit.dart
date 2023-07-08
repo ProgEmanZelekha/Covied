@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_controller.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:untitled/resource/generated/assets.gen.dart';
 import 'package:untitled/src/feature/home/presentation/manager/home/home_state.dart';
+import 'package:untitled/src/feature/home/presentation/manager/model/Image_response.dart';
 import 'package:untitled/src/feature/home/presentation/manager/model/corona_model.dart';
 import 'package:untitled/src/feature/home/presentation/manager/model/question_model.dart';
 import 'package:untitled/src/feature/home/presentation/pages/question/item_question.dart';
@@ -89,18 +91,34 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<bool> getResult(type) async {
-    if (image != null) {
-      emit(HomeLoading(true));
-      // await classifyImage(image!);
-      emit(HomeLoading(false));
-    }
     if (type == 2) {
-      postData();
+      if (validateQuestion()) {
+        emit(HomeLoading(true));
+        var result = await postData();
+        emit(HomeResult(result));
+        emit(HomeLoading(false));
+      } else {
+        emit(HomeError(message: ""));
+        emit(HomeError(message: "Please Answer All Questions"));
+      }
+    } else if (type == 1) {
+      emit(HomeLoading(true));
+      var result = await postImage();
+      emit( HomeResult(result));
+      emit(HomeLoading(false));
+    } else {
+      emit(HomeLoading(true));
+
+      var data = await Future.wait([postData(), postImage()]);
+      emit(HomeLoading(false));
+      if (data[0] && data[1]) {
+        emit(HomeResult(true));
+      } else if (data[0] || data[1]) {
+        emit(HomeResult(false));
+      } else {
+        emit( HomeResult(true));
+      }
     }
-    // var haveCovid = true;
-    // emit(HomeError(
-    //     message:
-    //         haveCovid ? S.current.have_covied : S.current.not_have_covied));
 
     return true;
   }
@@ -129,8 +147,8 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  Future<void> postData() async {
-    List<int> answers = [];
+  bool validateQuestion() {
+    answers.clear();
     for (var e in imageSliders) {
       if (e is ItemQuestion) {
         for (int i = 0; i < e.questionModel.answer.length; i++) {
@@ -141,28 +159,42 @@ class HomeCubit extends Cubit<HomeState> {
       }
     }
     if (answers.length == 8) {
-      emit(HomeLoading(true));
-
-      var dio = GetIt.instance.get<Dio>();
-      try {
-        final response = await dio.post(
-            'https://proj-5onb.onrender.com/predictions',
-            data: {"values": answers});
-        emit(HomeLoading(false));
-
-        final data = CoronaModel.fromJson(response.data);
-          emit(HomeResult(data.data.toString().contains("positive")?true:false));
-        print('my data is ${data.data}');
-        // emit(CoronaSuccess(data));
-      } on DioError catch (e) {
-        emit(HomeLoading(false));
-
-        print('fffff${e.toString()}');
-      }
+      return true;
     } else {
-      emit(HomeError(message: ""));
+      return false;
+    }
+  }
 
-      emit(HomeError(message: "Please Answer All Questions"));
+  List<int> answers = [];
+
+  Future<bool> postData() async {
+    var dio = GetIt.instance.get<Dio>();
+    try {
+      final response = await dio.post(
+          'https://proj-5onb.onrender.com/predictions',
+          data: {"values": answers});
+      final data = CoronaModel.fromJson(response.data);
+      return data.data.toString().contains("positive") ? true : false;
+    } on DioError catch (e) {
+      return false;
+    }
+  }
+
+  Future<bool> postImage() async {
+    var dio = GetIt.instance.get<Dio>();
+    try {
+      final response = await dio.post(
+          'https://images-api-e1le.onrender.com/classify',
+          data: FormData.fromMap({
+            'file':
+                await MultipartFile.fromFile(image!.path, filename: image!.path)
+          }));
+      //
+      final data = ImageResponse.fromJson(response.data);
+      var result = data.prediction!;
+      return double.parse(result) > .5 ? false : true;
+    } on DioError catch (e) {
+      return false;
     }
   }
 

@@ -19,9 +19,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBloc, AppState>(
-  builder: (context, state) {
-    return Column(
-        children: [
+      builder: (context, state) {
+        var appBloc = BlocProvider.of<AppBloc>(context);
+        return Column(children: [
           CornersBack(
               height: .2,
               radius: 30,
@@ -45,9 +45,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "${S.current.hello} ${BlocProvider
-                          .of<AppBloc>(context)
-                          .name}",
+                      "${S.current.hello} ${BlocProvider.of<AppBloc>(context).name??""}",
                       style: whiteText16,
                     ),
                   )
@@ -56,11 +54,16 @@ class ProfilePage extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          ItemProfileSelect(
-            image: Assets.images.profileHolder,
-            title: S.current.personal_info,
-            padding: 8.w,
-            onClick: () {context.router.push(const EmptyProfileRoute());},
+          Visibility(
+            visible: appBloc.isLogin,
+            child: ItemProfileSelect(
+              image: Assets.images.profileHolder,
+              title: S.current.personal_info,
+              padding: 8.w,
+              onClick: () {
+                context.router.push(const EmptyProfileRoute());
+              },
+            ),
           ),
           SizedBox(
             height: 10.h,
@@ -70,7 +73,8 @@ class ProfilePage extends StatelessWidget {
             title: S.current.setting,
             padding: 8.w,
             onClick: () {
-              context.router.push(const SettingsRoute());},
+              context.router.push(const SettingsRoute());
+            },
           ),
           SizedBox(
             height: 10.h,
@@ -81,7 +85,7 @@ class ProfilePage extends StatelessWidget {
             padding: 0.w,
             onClick: () {
               context.router.push(const AboutUsRoute());
-              },
+            },
           ),
           SizedBox(
             height: 10.h,
@@ -92,7 +96,7 @@ class ProfilePage extends StatelessWidget {
             padding: 8.w,
             onClick: () {
               // context.router.push(const ContactUsRoute());
-              },
+            },
           ),
           SizedBox(
             height: 10.h,
@@ -105,25 +109,34 @@ class ProfilePage extends StatelessWidget {
                 child: logoutButton(context)),
           )
         ]);
-  },
-);
+      },
+    );
   }
 
   Widget logoutButton(BuildContext context) {
+    var appBloc = BlocProvider.of<AppBloc>(context);
+
     return BlocConsumer<AppBloc, AppState>(
-      listenWhen: (ps,cs)=>cs is AppLogin,
+      listenWhen: (ps, cs) => cs is AppLogin,
       listener: (context, state) {
         if (state is AppLogin && !state.isLogin!) {
-          BlocProvider.of<AppBloc>(context).add(const LogoutEvent(isLogin: true));
+          BlocProvider.of<AppBloc>(context)
+              .add(const LogoutEvent(isLogin: false));
           context.router.push(const AuthContainer());
           context.router.popUntil((route) => route == AuthContainer());
         }
       },
       builder: (context, state) {
         return InkWell(
-          onTap: () {
-            BlocProvider.of<AppBloc>(context).add(const LogoutEvent(isLogin: false));
-          },
+          onTap: appBloc.isLogin
+              ? () {
+                  BlocProvider.of<AppBloc>(context)
+                      .add(const LogoutEvent(isLogin: false));
+                }
+              : () {
+                  context.router.push(const AuthContainer());
+                  context.router.popUntil((route) => route == AuthContainer());
+                },
           child: Container(
             padding: EdgeInsets.all(20.w),
             decoration: BoxDecoration(
@@ -138,7 +151,7 @@ class ProfilePage extends StatelessWidget {
                   width: 20.w,
                 ),
                 Text(
-                  S.current.logout,
+                  appBloc.isLogin ? S.current.logout : S.current.login,
                   style: TextStyle(color: Colors.white, fontSize: 15.sp),
                 ),
               ],

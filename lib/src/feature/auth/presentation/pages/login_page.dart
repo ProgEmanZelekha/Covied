@@ -65,8 +65,7 @@ class LoginPage extends StatelessWidget {
                 horizontalTitleGap: 0,
                 contentPadding: EdgeInsets.zero,
                 child: BlocConsumer<AuthCubit, AuthState>(
-                  listener: (context, state) {
-                  },
+                  listener: (context, state) {},
                   builder: (context, state) {
                     return BlocBuilder<AuthCubit, AuthState>(
                       buildWhen: (ps, cs) => cs is RememberCheck,
@@ -134,9 +133,30 @@ class LoginPage extends StatelessWidget {
                     color: AppColors.current.secondaryTextColor,
                     fontSize: 14.sp),
               ),
-            )
+            ),
+
           ],
-        )
+        ),
+
+        SizedBox(
+          height: 30.h,
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: InkWell(
+            onTap: () {
+              context.router.push(HomeContainer());
+              context.router.popUntil((route) => route == HomeContainer());
+            },
+            child: Text(
+              "Skip",
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: AppColors.current.secondaryTextColor,
+                  fontSize: 14.sp),
+            ),
+          ),
+        ),
       ],
     );
   }

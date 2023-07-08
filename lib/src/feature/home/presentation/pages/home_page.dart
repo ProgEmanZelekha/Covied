@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                       height: 10.h,
                     ),
                     Text(
-                      "${S.current.hello} ${BlocProvider.of<AppBloc>(context).name}",
+                      "${S.current.hello} ${BlocProvider.of<AppBloc>(context).name??""}",
                       style: whiteText12,
                     )
                   ],
